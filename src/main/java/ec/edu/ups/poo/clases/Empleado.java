@@ -1,6 +1,6 @@
-package ec.edu.ups.poo;
+package ec.edu.ups.poo.clases;
 
-public class Empleado extends Persona{
+public class Empleado extends Persona {
 
     private String usuario;
     private String contrasena;
