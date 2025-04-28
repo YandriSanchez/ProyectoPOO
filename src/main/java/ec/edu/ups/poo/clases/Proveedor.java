@@ -1,7 +1,5 @@
 package ec.edu.ups.poo.clases;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Proveedor extends Persona{
@@ -29,8 +27,7 @@ public class Proveedor extends Persona{
                 ", telefono='" + getTelefono() + '\'' +
                 ", correo='" + getCorreo() + '\'' +
                 ", direccion='" + getDireccion() + '\'' +
-                "Proveedor{" +
-                "listaProductos=" + listaProductos +
+                "{listaProductos=" + listaProductos +
                 '}';
     }
 

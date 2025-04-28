@@ -59,7 +59,7 @@ public class GestorMenu {
                     System.out.println("Deseas agregar datos por defecto o no");
                     boolean defecto = scanner.nextBoolean();
                     if(defecto){
-                        proveedores.proveedoresporDefecto();
+                        //proveedores.proveedoresporDefecto();
                     }else{
                         proveedores.agregarProveedor();
                     }

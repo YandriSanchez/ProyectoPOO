@@ -2,6 +2,7 @@ package ec.edu.ups.poo.clases;
 import ec.edu.ups.poo.enums.TipoProductoSinIVA;
 
 public class ProductoSinIVA {
+
     private TipoProductoSinIVA tipoExencion;
 
     public ProductoSinIVA(TipoProductoSinIVA tipoExencion) {

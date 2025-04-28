@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class GestorEmpleados {
 
-    private List<Empleado> listaEmpleados = new ArrayList<>();
-    private Scanner scanner = new Scanner(System.in);
+    private final List<Empleado> listaEmpleados = new ArrayList<>();
+    private final Scanner scanner = new Scanner(System.in);
 
     public void agregarEmpleado() {
         System.out.println("Ingrese los datos del nuevo empleado:");

@@ -30,14 +30,6 @@ public class DetalleCompra implements OperacionesCompra {
         this.estado = estado;
     }
 
-    public List<ItemCompra> getListadoProductos() {
-        return listadoItemProductos;
-    }
-
-    public void setListadoProductos(List<ItemCompra> listadoProductos) {
-        this.listadoItemProductos = listadoProductos;
-    }
-
     public GregorianCalendar getFechaEmision() {
         return fechaEmision;
     }
