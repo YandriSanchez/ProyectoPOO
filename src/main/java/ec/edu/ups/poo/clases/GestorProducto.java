@@ -3,9 +3,9 @@ package ec.edu.ups.poo.clases;
 import java.util.Scanner;
 
 public class GestorProducto {
+    Scanner scanner = new Scanner(System.in);
 
     public Producto solicitarProducto() {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Ingrese los datos del producto:");
 
