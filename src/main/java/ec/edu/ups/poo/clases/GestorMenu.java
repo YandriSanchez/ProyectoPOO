@@ -38,9 +38,8 @@ public class GestorMenu {
         } while (opcion != 4);
     }
 
-    private void mostrarSubMenuProveedores() {
+    public void mostrarSubMenuProveedores() {
         GestorProveedor proveedores = new GestorProveedor();
-        Proveedor proveedor = new Proveedor();
         int opcion;
         do {
             System.out.println("\n===== GESTIÓN DE PROVEEDORES ====="+
@@ -57,7 +56,13 @@ public class GestorMenu {
 
             switch (opcion) {
                 case 1:
-                    proveedores.agregarProveedor();
+                    System.out.println("Deseas agregar datos por defecto o no");
+                    boolean defecto = scanner.nextBoolean();
+                    if(defecto){
+                        proveedores.proveedoresporDefecto();
+                    }else{
+                        proveedores.agregarProveedor();
+                    }
                     break;
                 case 2:
                     proveedores.mostrarTodosProveedores();
@@ -83,9 +88,9 @@ public class GestorMenu {
         GestorEmpleados gestorEmpleados = new GestorEmpleados();
         int opcion;
         do {
-            System.out.println("\n===== GESTIÓN DE EMPELADOS ====="+
+            System.out.println("\n===== GESTIÓN DE EMPLEADOS ====="+
                     "\n1. Registrar empleado"+
-                    "\n2. Listar emepleados"+
+                    "\n2. Listar empleados"+
                     "\n3. Buscar empleado por ID"+
                     "\n4. Volver al menú principal"+
                     "\n Seleccione una opción: ");
@@ -95,7 +100,13 @@ public class GestorMenu {
 
             switch (opcion) {
                 case 1:
-                    gestorEmpleados.agregarEmpleado();
+                    System.out.println("Deseas agregar datos por defecto o no");
+                    boolean defecto = scanner.nextBoolean();
+                    if(defecto){
+                        gestorEmpleados.agregarEmpleadosPorDefecto();
+                    }else{
+                        gestorEmpleados.agregarEmpleado();
+                    }
                     break;
                 case 2:
                     gestorEmpleados.mostrarTodosEmpleados();
@@ -122,6 +133,7 @@ public class GestorMenu {
                     "\n3. Buscar solicitud por número"+
                     "\n4. Aprobar / Rechazar solicitud"+
                     "\n5. Calcular total de una solicitud"+
+                    "\n6. Eliminar un ItemCompra"+
                     "\n6. Volver al menú principal"+
                     "\nSeleccione una opción: ");
 
@@ -145,6 +157,9 @@ public class GestorMenu {
                     gestorCompras.calcularTotalSolicitud(gestorCompras.NumeroBuscar());
                     break;
                 case 6:
+                    gestorCompras.eliminarProductoPorCodigo();
+                    break;
+                case 7:
                     System.out.println("Regresando al menú principal...");
                     break;
                 default:

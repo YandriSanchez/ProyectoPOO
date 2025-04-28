@@ -10,16 +10,38 @@ import java.util.Scanner;
 public class GestorCompras{
     private List<DetalleCompra> listaCompras = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
-    private EstadoSolicitud estado;
 
     public void registrarSolicitudCompra() {
-        System.out.println("Ingrese el estado de la solicitud (SOLICITADA, EN_REVISION, APROBADA, RECHAZADA): ");
-        estado = EstadoSolicitud.valueOf(scanner.next().toUpperCase());
-        DetalleCompra nuevaCompra = new DetalleCompra(estado, new GregorianCalendar());
-        listaCompras.add(nuevaCompra);
-        System.out.println("Solicitud de compra registrada.");
-    }
+        GestorProveedor gestorProveedor = new GestorProveedor();
+        System.out.println("Ingrese la cédula de identidad del proveedor: ");
+        String identificacion = scanner.nextLine();
 
+        List<Producto> listaProductos = gestorProveedor.buscarProveedor(identificacion).getListaProductos();
+
+        if (listaProductos == null || listaProductos.isEmpty()) {
+            System.out.println("No se encontraron productos para este proveedor.");
+            return;
+        }
+
+
+        List<ItemCompra> listaItemCompra = new ArrayList<>();
+        for (Producto producto : listaProductos) {
+            System.out.println("Ingrese la cantidad para el producto: " + producto.getNombre());
+            int cantidad = scanner.nextInt();
+            scanner.nextLine();
+
+            ItemCompra item = new ItemCompra(producto, cantidad);
+            listaItemCompra.add(item);
+        }
+
+        System.out.println("Ingrese el estado de la solicitud (SOLICITADA, EN_REVISION, APROBADA, RECHAZADA): ");
+        EstadoSolicitud estado = EstadoSolicitud.valueOf(scanner.next().toUpperCase());
+
+        DetalleCompra nuevaCompra = new DetalleCompra(estado, new GregorianCalendar(), listaItemCompra);
+        listaCompras.add(nuevaCompra);
+
+        System.out.println("Solicitud de compra registrada exitosamente.");
+    }
 
     public void listarSolicitudesCompra() {
         if (listaCompras.isEmpty()) {
@@ -27,6 +49,7 @@ public class GestorCompras{
         } else {
             for (DetalleCompra compra : listaCompras) {
                 System.out.println(compra.toString());
+                compra.mostrarResumenCompra();
             }
         }
     }
@@ -43,17 +66,35 @@ public class GestorCompras{
         DetalleCompra compra = buscarSolicitudPorNumero(numero);
         if (compra != null) {
             compra.setEstado(nuevoEstado);
-            System.out.println("✅ Estado actualizado a: " + nuevoEstado);
+            System.out.println("Estado actualizado a: " + nuevoEstado);
         }
     }
 
     public void calcularTotalSolicitud(int numero) {
         DetalleCompra compra = buscarSolicitudPorNumero(numero);
         if (compra != null) {
-            System.out.println("💰 Total de la compra: " + compra.calculcarTotal()); // Usa el método de la interfaz
+            System.out.println("Total de la compra: " + compra.calculcarTotal());
         }
     }
 
+    public void eliminarProductoPorCodigo() {
+        DetalleCompra detalleCompra = new DetalleCompra();
+        System.out.print("Ingrese el código del producto a eliminar: ");
+        String codigoProducto = scanner.nextLine();
+
+        ItemCompra itemEncontrado = detalleCompra.buscarItem(codigoProducto);
+
+        if (itemEncontrado != null) {
+            boolean eliminado = detalleCompra.removerItem(itemEncontrado.getProducto().getCodigo());
+            if (eliminado) {
+                System.out.println("Producto eliminado correctamente.");
+            } else {
+                System.out.println("No se pudo eliminar el producto.");
+            }
+        } else {
+            System.out.println("No se encontró ningún producto con el código ingresado.");
+        }
+    }
 
     public int NumeroBuscar(){
         System.out.println("Ingrese el numero dependiendo del orden de Compras: ");
@@ -66,7 +107,7 @@ public class GestorCompras{
         System.out.println("Ingrese el nuevo estado de la compra: "+
                 "\nSOLICITADA"+
                 "\nEN_REVISION"+
-                "\nAPROVADA"+
+                "\nAPROBADA"+
                 "\nRECHAZADA");
         return EstadoSolicitud.valueOf(scanner.next().toUpperCase());
     }

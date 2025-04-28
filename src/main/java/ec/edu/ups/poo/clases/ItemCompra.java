@@ -1,6 +1,8 @@
 package ec.edu.ups.poo.clases;
 
-public class ItemCompra {
+import ec.edu.ups.poo.interfaces.OperacionesCompra;
+
+public class ItemCompra implements OperacionesCompra {
     private Producto producto;
     private int cantidad;
     private double precioUnitario;
@@ -10,11 +12,12 @@ public class ItemCompra {
         this.producto = producto;
         this.cantidad = cantidad;
         this.precioUnitario = producto.getPrecio();
-        this.subtotal = calcularSubtotal();
+        this.subtotal = calculcarTotal();
     }
 
-    public double calcularSubtotal() {
-        return precioUnitario * cantidad;
+    @Override
+    public double calculcarTotal() {
+        return precioUnitario * cantidad; // Aplica el impuesto
     }
 
     public Producto getProducto() {
@@ -31,7 +34,7 @@ public class ItemCompra {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
-        this.subtotal = calcularSubtotal();
+        this.subtotal = calculcarTotal();
     }
 
     public double getPrecioUnitario() {
@@ -40,7 +43,7 @@ public class ItemCompra {
 
     public void setPrecioUnitario(double precioUnitario) {
         this.precioUnitario = precioUnitario;
-        this.subtotal = calcularSubtotal();
+        this.subtotal = calculcarTotal();
     }
 
     public double getSubtotal() {

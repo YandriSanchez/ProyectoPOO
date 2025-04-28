@@ -8,9 +8,6 @@ public class Proveedor extends Persona{
 
     private List<Producto> listaProductos;
 
-    public Proveedor() {
-    }
-
     public Proveedor(String nombre, String identificacion, String telefono, String correo,
                      String direccion, List<Producto> listaProductos) {
         super(nombre, identificacion, telefono, correo, direccion);

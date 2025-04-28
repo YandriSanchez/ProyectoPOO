@@ -25,9 +25,6 @@ Este proyecto representa una solución orientada a objetos para administrar de f
 
 - Gestionar operaciones utilizando principios fundamentales como herencia, polimorfismo, interfaces, clases abstractas y enumeraciones.
 
----
-## 🗂️ Diagrama:
-![Vista previa del sistema](https://github.com/Mathias-Anazco/imagen-poo2/blob/main/GestionDeComprasPoo.drawio.png?raw=true)
 
 ---
 ## 🚀 Ejecución
