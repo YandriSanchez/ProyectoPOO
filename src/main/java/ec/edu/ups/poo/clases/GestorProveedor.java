@@ -1,16 +1,45 @@
 package ec.edu.ups.poo.clases;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class GestorProveedor {
 
     private List<Proveedor> listaProveedores;
+    private List<Producto> listaProductos;
 
-    public void agregarProveedor(Proveedor nuevoProveedor) {
+    Scanner scanner = new Scanner(System.in);
+    GestorMenu gestorMenu = new GestorMenu();
+    GestorProducto gestorProducto = new GestorProducto();
+
+    public GestorProveedor() {
+    }
+
+    public void agregarProveedor() {
+        System.out.println("Ingrese los datos del nuevo proveedor:");
+
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine();
+
+        String identificacion = gestorMenu.solicitarCedulaValida();
+
+        System.out.print("Teléfono: ");
+        String telefono = scanner.nextLine();
+
+        System.out.print("Correo: ");
+        String correo = scanner.nextLine();
+
+        System.out.print("Dirección: ");
+        String direccion = scanner.nextLine();
+
+        agregarProducto(GestorMenu.solicitarCedulaValida());
+
+        Proveedor nuevoProveedor = new Proveedor(nombre, identificacion, telefono, correo, direccion,null);
+
         listaProveedores.add(nuevoProveedor);
         System.out.println("Proveedor agregado correctamente.");
     }
+
 
     public boolean eliminarProveedor(String identificacion) {
         for (Proveedor proveedor : listaProveedores) {
@@ -44,24 +73,20 @@ public class GestorProveedor {
         }
     }
 
-    public boolean asignarProductoAProveedor(String idProveedor, Producto producto) {
-        Proveedor proveedor = buscarProveedor(idProveedor);
-        if (proveedor != null) {
-            //proveedor.agregarProducto(producto);
-            System.out.println("Producto asignado correctamente.");
-            return true;
-        }
-        System.out.println("Proveedor no encontrado.");
-        return false;
+    public void agregarProducto(String identificacion) {
+        Proveedor proveedorEncontrado = buscarProveedor(identificacion);
+        listaProductos = proveedorEncontrado.getListaProductos();
+        listaProductos.add(gestorProducto.solicitarProducto());
+        proveedorEncontrado.setListaProductos(listaProductos);
+        System.out.println("Producto agregado correctamente ");
     }
 
     public void listarProductosDeProveedor(String idProveedor) {
         Proveedor proveedor = buscarProveedor(idProveedor);
         if (proveedor != null) {
-            //proveedor.mostrarListaProductos();
+            listaProductos = proveedor.getListaProductos();
         } else {
             System.out.println("Proveedor no encontrado.");
         }
     }
-
 }
