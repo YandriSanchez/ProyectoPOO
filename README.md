@@ -27,6 +27,7 @@ Este proyecto representa una solución orientada a objetos para administrar de f
 
 ---
 ## 🗂️ Diagrama
+![Vista previa del sistema](https://github.com/Mathias-Anazco/Imagen-POO/blob/main/GestionDeComprasUML.drawio.png?raw=true)
 
 ---
 ## 🚀 Ejecución
