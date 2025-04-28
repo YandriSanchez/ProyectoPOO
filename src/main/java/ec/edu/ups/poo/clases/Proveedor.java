@@ -1,14 +1,18 @@
 package ec.edu.ups.poo.clases;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Proveedor extends Persona{
 
     private List<Producto> listaProductos;
 
+    public Proveedor() {
+    }
+
     public Proveedor(String nombre, String identificacion, String telefono, String correo,
-                     String direccion,List<Producto> listaProductos) {
+                     String direccion, List<Producto> listaProductos) {
         super(nombre, identificacion, telefono, correo, direccion);
         this.listaProductos = listaProductos;
     }
@@ -23,8 +27,15 @@ public class Proveedor extends Persona{
 
     @Override
     public String toString() {
-        return "Proveedor{" +
+        return "{nombre='" + getNombre() + '\'' +
+                ", identificacion='" + getIdentificacion() + '\'' +
+                ", telefono='" + getTelefono() + '\'' +
+                ", correo='" + getCorreo() + '\'' +
+                ", direccion='" + getDireccion() + '\'' +
+                "Proveedor{" +
                 "listaProductos=" + listaProductos +
                 '}';
     }
+
+
 }

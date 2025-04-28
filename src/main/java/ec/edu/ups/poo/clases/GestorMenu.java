@@ -5,10 +5,6 @@ import java.util.Scanner;
 public class GestorMenu {
 
     Scanner scanner = new Scanner(System.in);
-    GestorProveedor proveedores = new GestorProveedor();
-
-    public GestorMenu() {
-    }
 
     public void mostrarMenuPrincipal() {
         int opcion;
@@ -47,6 +43,8 @@ public class GestorMenu {
     }
 
     private void mostrarSubMenuProveedores() {
+        GestorProveedor proveedores = new GestorProveedor();
+        Proveedor proveedor = new Proveedor();
         int opcion;
         do {
             System.out.println("\n===== GESTIÓN DE PROVEEDORES ====="+
@@ -69,7 +67,7 @@ public class GestorMenu {
                     proveedores.mostrarTodosProveedores();
                     break;
                 case 3:
-                    proveedores.buscarProveedor(solicitarCedulaValida());
+                    System.out.println(proveedores.buscarProveedor(solicitarCedulaValida()));
                     break;
                 case 4:
                     proveedores.eliminarProveedor(solicitarCedulaValida());
