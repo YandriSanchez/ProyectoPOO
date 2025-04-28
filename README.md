@@ -61,7 +61,7 @@ true
 A
 ```
 ---
-## 👥 Participantes
+## 👥 Participantes:
 
 - **Mathias Añazco - [@Mathias-Anazco](https://github.com/Mathias-Anazco)**
 - **Yandri Sanchez - [@YandriSanchez](https://github.com/YandriSanchez)**
