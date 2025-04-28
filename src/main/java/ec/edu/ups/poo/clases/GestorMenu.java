@@ -12,13 +12,12 @@ public class GestorMenu {
             System.out.println("\n===== SISTEMA DE GESTIÓN DE COMPRAS ERP ====="+
                     "\n1. Gestionar Proveedores"+
                     "\n2. Gestionar Empleados"+
-                    "\n3. Gestionar Productos"+
-                    "\n4. Gestionar Compras"+
-                    "\n5. Salir"+
+                    "\n3. Gestionar Compras"+
+                    "\n4. Salir"+
                     "\nSeleccione una opción: ");
 
             opcion = scanner.nextInt();
-            scanner.nextLine(); // Consumir el salto de línea
+            scanner.nextLine();
 
             switch (opcion) {
                 case 1:
@@ -28,18 +27,15 @@ public class GestorMenu {
                     mostrarSubMenuEmpleados();
                     break;
                 case 3:
-                    mostrarSubMenuProductos();
-                    break;
-                case 4:
                     mostrarSubMenuCompras();
                     break;
-                case 5:
+                case 4:
                     System.out.println("Finalizando el Programa...");
                     break;
                 default:
                     System.out.println("Opción no válida. Intente nuevamente.");
             }
-        } while (opcion != 5);
+        } while (opcion != 4);
     }
 
     private void mostrarSubMenuProveedores() {
@@ -84,6 +80,7 @@ public class GestorMenu {
     }
 
     private void mostrarSubMenuEmpleados() {
+        GestorEmpleados gestorEmpleados = new GestorEmpleados();
         int opcion;
         do {
             System.out.println("\n===== GESTIÓN DE EMPELADOS ====="+
@@ -98,45 +95,13 @@ public class GestorMenu {
 
             switch (opcion) {
                 case 1:
-                    //proveedores.agregarProveedor(new Proveedor());
+                    gestorEmpleados.agregarEmpleado();
                     break;
                 case 2:
-                    //gestorProveedor.mostrarTodosProveedores();
+                    gestorEmpleados.mostrarTodosEmpleados();
                     break;
                 case 3:
-                    //gestorProveedor.buscarProveedor();
-                    break;
-                case 4:
-                    System.out.println("Regresando al menú principal...");
-                    break;
-                default:
-                    System.out.println("Opción no válida.");
-            }
-        } while (opcion != 4);
-    }
-
-    private void mostrarSubMenuProductos() {
-        int opcion;
-        do {
-            System.out.println("\n===== GESTIÓN DE PRODUCTOS ====="+
-                    "\n1. Registrar producto"+
-                    "\n2. Listar productos"+
-                    "\n3. Buscar producto por nombre"+
-                    "\n4. Volver al menú principal"+
-                    "\nSeleccione una opción: ");
-
-            opcion = scanner.nextInt();
-            scanner.nextLine();
-
-            switch (opcion) {
-                case 1:
-                    //gestorCompras.registrarProducto();
-                    break;
-                case 2:
-                    //gestorCompras.listarProductos();
-                    break;
-                case 3:
-                    //gestorCompras.buscarProductoPorNombre();
+                    System.out.println(gestorEmpleados.buscarEmpleado(solicitarCedulaValida()));
                     break;
                 case 4:
                     System.out.println("Regresando al menú principal...");
@@ -148,6 +113,7 @@ public class GestorMenu {
     }
 
     private void mostrarSubMenuCompras() {
+        GestorCompras gestorCompras = new GestorCompras();
         int opcion;
         do {
             System.out.println("\n===== GESTIÓN DE SOLICITUDES DE COMPRA ====="+
@@ -164,19 +130,19 @@ public class GestorMenu {
 
             switch (opcion) {
                 case 1:
-                    //gestorCompras.registrarSolicitudCompra();
+                    gestorCompras.registrarSolicitudCompra();
                     break;
                 case 2:
-                    //gestorCompras.listarSolicitudesCompra();
+                    gestorCompras.listarSolicitudesCompra();
                     break;
                 case 3:
-                    //gestorCompras.buscarSolicitudPorNumero();
+                    gestorCompras.buscarSolicitudPorNumero(gestorCompras.NumeroBuscar());
                     break;
                 case 4:
-                    //gestorCompras.gestionarEstadoSolicitud();
+                    gestorCompras.gestionarEstadoSolicitud(gestorCompras.NumeroBuscar(), gestorCompras.nuevoEstado());
                     break;
                 case 5:
-                    //gestorCompras.calcularTotalSolicitud();
+                    gestorCompras.calcularTotalSolicitud(gestorCompras.NumeroBuscar());
                     break;
                 case 6:
                     System.out.println("Regresando al menú principal...");

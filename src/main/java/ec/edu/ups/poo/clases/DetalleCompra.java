@@ -1,10 +1,13 @@
 package ec.edu.ups.poo.clases;
+
 import ec.edu.ups.poo.enums.EstadoSolicitud;
+import ec.edu.ups.poo.interfaces.OperacionesCompra;
+
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-public class DetalleCompra {
+public class DetalleCompra implements OperacionesCompra {
     private EstadoSolicitud estado;
     private List<ItemCompra> listadoProductos;
     private GregorianCalendar fechaEmision;
@@ -41,8 +44,8 @@ public class DetalleCompra {
         this.fechaEmision = fechaEmision;
     }
 
-    // Método para calcular el total de la compra
-    public double calcularTotalCompra() {
+    @Override
+    public double calculcarTotal() {
         double total = 0;
         for (ItemCompra item : listadoProductos) {
             total += item.getSubtotal();
@@ -50,13 +53,12 @@ public class DetalleCompra {
         return total;
     }
 
-    // Método para agregar un nuevo item a la lista
     public void agregarItem(ItemCompra nuevoItem) {
         listadoProductos.add(nuevoItem);
         System.out.println("Producto agregado: " + nuevoItem);
     }
 
-    // Método para remover un item basado en el código del producto
+
     public boolean removerItem(String codigoProducto) {
         for (ItemCompra item : listadoProductos) {
             if (item.getProducto().getCodigo().equals(codigoProducto)) {
@@ -68,7 +70,7 @@ public class DetalleCompra {
         return false; // Si no se encuentra el producto
     }
 
-    // Método para buscar un item basado en el nombre del producto
+
     public ItemCompra buscarItem(String nombreProducto) {
         for (ItemCompra item : listadoProductos) {
             if (item.getProducto().getNombre().equalsIgnoreCase(nombreProducto)) {
@@ -78,8 +80,8 @@ public class DetalleCompra {
         return null; // Si no se encuentra el producto
     }
 
-    // Método para mostrar un resumen de la compra
-    public void mostrarResumenCompra() {
+
+    /*public void mostrarResumenCompra() {
         System.out.println("Resumen de la Compra:");
         System.out.println("Fecha de emisión: " + fechaEmision.getTime());
         System.out.println("Estado: " + estado);
@@ -88,7 +90,7 @@ public class DetalleCompra {
             System.out.println(item);
         }
         System.out.println("Total: " + calcularTotalCompra());
-    }
+    }*/
     @Override
     public String toString() {
         return "DetalleCompra{" +

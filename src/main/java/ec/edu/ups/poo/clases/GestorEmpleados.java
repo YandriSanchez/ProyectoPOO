@@ -36,17 +36,6 @@ public class GestorEmpleados {
         System.out.println("Empleado agregado correctamente.");
     }
 
-    public void eliminarEmpleado(String identificacion) {
-        for (Empleado empleado : listaEmpleados) {
-            if (empleado.getIdentificacion().equals(identificacion)) {
-                listaEmpleados.remove(empleado);
-                System.out.println("Empleado eliminado.");
-                return;
-            }
-        }
-        System.out.println("Empleado no encontrado.");
-    }
-
     public Empleado buscarEmpleado(String identificacion) {
         for (Empleado empleado : listaEmpleados) {
             if (empleado.getIdentificacion().equals(identificacion)) {
