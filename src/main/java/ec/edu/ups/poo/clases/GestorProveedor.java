@@ -1,27 +1,22 @@
 package ec.edu.ups.poo.clases;
 
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class GestorProveedor {
 
-    private List<Proveedor> listaProveedores;
-    private List<Producto> listaProductos;
-
+    private List<Proveedor> listaProveedores = new ArrayList<>();
+    private List<Producto> listaProductos = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
-    GestorMenu gestorMenu = new GestorMenu();
-    GestorProducto gestorProducto = new GestorProducto();
-
-    public GestorProveedor() {
-    }
 
     public void agregarProveedor() {
+        GestorMenu gestorMenu = new GestorMenu();
+
         System.out.println("Ingrese los datos del nuevo proveedor:");
 
         System.out.print("Nombre: ");
         String nombre = scanner.nextLine();
 
-        String identificacion = gestorMenu.solicitarCedulaValida();
+        String identificacion = GestorMenu.solicitarCedulaValida();
 
         System.out.print("Teléfono: ");
         String telefono = scanner.nextLine();
@@ -32,25 +27,26 @@ public class GestorProveedor {
         System.out.print("Dirección: ");
         String direccion = scanner.nextLine();
 
-        agregarProducto(GestorMenu.solicitarCedulaValida());
+        GestorProducto gestorProducto = new GestorProducto();
+        listaProductos.add(gestorProducto.solicitarProducto());
+        System.out.println("Producto agregado correctamente ");
 
-        Proveedor nuevoProveedor = new Proveedor(nombre, identificacion, telefono, correo, direccion,null);
+        Proveedor nuevoProveedor = new Proveedor(nombre, identificacion, telefono, correo, direccion,listaProductos);
 
         listaProveedores.add(nuevoProveedor);
         System.out.println("Proveedor agregado correctamente.");
     }
 
 
-    public boolean eliminarProveedor(String identificacion) {
+    public void eliminarProveedor(String identificacion) {
         for (Proveedor proveedor : listaProveedores) {
             if (proveedor.getIdentificacion().equals(identificacion)) {
                 listaProveedores.remove(proveedor);
                 System.out.println("Proveedor eliminado.");
-                return true;
+                return;
             }
         }
         System.out.println("Proveedor no encontrado.");
-        return false;
     }
 
     public Proveedor buscarProveedor(String identificacion) {
@@ -74,19 +70,11 @@ public class GestorProveedor {
     }
 
     public void agregarProducto(String identificacion) {
+        GestorProducto gestorProducto = new GestorProducto();
         Proveedor proveedorEncontrado = buscarProveedor(identificacion);
         listaProductos = proveedorEncontrado.getListaProductos();
         listaProductos.add(gestorProducto.solicitarProducto());
         proveedorEncontrado.setListaProductos(listaProductos);
         System.out.println("Producto agregado correctamente ");
-    }
-
-    public void listarProductosDeProveedor(String idProveedor) {
-        Proveedor proveedor = buscarProveedor(idProveedor);
-        if (proveedor != null) {
-            listaProductos = proveedor.getListaProductos();
-        } else {
-            System.out.println("Proveedor no encontrado.");
-        }
     }
 }
