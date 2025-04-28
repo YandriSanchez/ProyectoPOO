@@ -8,9 +8,6 @@ public class Persona {
     private String correo;
     private String direccion;
 
-    public Persona() {
-    }
-
     public Persona(String nombre, String identificacion, String telefono, String correo, String direccion) {
         this.nombre = nombre;
         this.identificacion = identificacion;

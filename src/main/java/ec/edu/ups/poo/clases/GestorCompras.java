@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class GestorCompras{
-    private List<DetalleCompra> listaCompras = new ArrayList<>();
-    private Scanner scanner = new Scanner(System.in);
+    private final List<DetalleCompra> listaCompras = new ArrayList<>();
+    private final Scanner scanner = new Scanner(System.in);
 
     public void registrarSolicitudCompra() {
         GestorProveedor gestorProveedor = new GestorProveedor();

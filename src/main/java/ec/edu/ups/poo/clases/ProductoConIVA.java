@@ -1,6 +1,7 @@
 package ec.edu.ups.poo.clases;
 
 public class ProductoConIVA {
+
     private double tasaIVA;
 
     public ProductoConIVA(double tasaIVA) {

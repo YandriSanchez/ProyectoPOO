@@ -4,13 +4,11 @@ import java.util.*;
 
 public class GestorProveedor {
 
-    private List<Proveedor> listaProveedores = new ArrayList<>();
+    private final List<Proveedor> listaProveedores = new ArrayList<>();
     private List<Producto> listaProductos = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
     public void agregarProveedor() {
-        GestorMenu gestorMenu = new GestorMenu();
-
         System.out.println("Ingrese los datos del nuevo proveedor:");
 
         System.out.print("Nombre: ");
@@ -78,7 +76,7 @@ public class GestorProveedor {
         System.out.println("Producto agregado correctamente ");
     }
 
-    public void proveedoresporDefecto() {
+    /*public void proveedoresporDefecto() {
         List<Proveedor> proveedoresPorDefecto = Arrays.asList(
                 new Proveedor("ElectroTech S.A.", "1712345678", "0987654321", "ventas@electrotech.ec", "Av. 6 de Diciembre 123",
                         Arrays.asList(
@@ -129,5 +127,5 @@ public class GestorProveedor {
                 )
         );
         listaProveedores.addAll(proveedoresPorDefecto);
-    }
+    }*/
 }
