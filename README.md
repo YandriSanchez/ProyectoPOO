@@ -27,7 +27,7 @@ Este proyecto representa una solución orientada a objetos para administrar de f
 
 ---
 ## 🗂️ Diagrama
-![Vista previa del sistema](https://github.com/Mathias-Anazco/Imagen-POO/blob/main/GestionDeComprasUML.drawio.png?raw=true)
+![Vista previa del sistema](https://github.com/Mathias-Anazco/imagen-poo2/blob/main/GestionDeComprasPoo.drawio.png?raw=true)
 
 ---
 ## 🚀 Ejecución
@@ -43,24 +43,6 @@ Para ejecutar el proyecto:
     java App
     ```
 
----
-
-## 🧑‍💻 Ejemplo de Salida
-
-```plaintext
-Seleccione el método de ordenamiento:
-1. Burbuja
-2. Selección
-3. Inserción
-4. Burbuja Mejorado
-5. Salir
-
-¿Desea ver los pasos? (true/false):
-true
-
-¿Desea ordenar ascendentemente (A) o descendentemente (D)?:
-A
-```
 ---
 ## 👥 Participantes:
 
