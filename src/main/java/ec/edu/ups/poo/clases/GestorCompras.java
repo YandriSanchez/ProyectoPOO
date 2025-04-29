@@ -85,7 +85,7 @@ public class GestorCompras{
 
     public void eliminarProductoPorCodigo() {
         DetalleCompra detalleCompra = new DetalleCompra();
-        System.out.print("Ingrese el código del producto a eliminar: ");
+        System.out.print("Ingrese el nombre del producto a eliminar: ");
         String codigoProducto = scanner.nextLine();
 
         ItemCompra itemEncontrado = detalleCompra.buscarItem(codigoProducto);

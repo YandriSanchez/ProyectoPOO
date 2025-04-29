@@ -25,6 +25,10 @@ Este proyecto representa una solución orientada a objetos para administrar de f
 
 - Gestionar operaciones utilizando principios fundamentales como herencia, polimorfismo, interfaces, clases abstractas y enumeraciones.
 
+---
+
+## 🗂️ Diagrama
+![](https://github.com/Mathias-Anazco/imagen-poo3/blob/main/PracticaPOO.drawio.png?raw=true)
 
 ---
 ## 🚀 Ejecución

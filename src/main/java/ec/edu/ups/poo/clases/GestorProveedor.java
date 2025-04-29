@@ -61,7 +61,6 @@ public class GestorProveedor {
     }
 
     public Proveedor buscarProveedor(String identificacion) {
-        System.out.println(listaProveedores);
         for (Proveedor proveedor : listaProveedores) {
             if (proveedor.getIdentificacion().equals(identificacion)) {
                 return proveedor;
