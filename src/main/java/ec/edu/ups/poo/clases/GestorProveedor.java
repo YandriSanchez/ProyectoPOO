@@ -1,6 +1,8 @@
 package ec.edu.ups.poo.clases;
 
 import java.util.*;
+import ec.edu.ups.poo.enums.TipoProductoSinImpuesto;
+import ec.edu.ups.poo.enums.TipoProductoConImpuesto;
 
 public class GestorProveedor {
 
@@ -94,56 +96,56 @@ public class GestorProveedor {
         System.out.println("Producto agregado correctamente ");
     }
 
-    /*public void proveedoresporDefecto() {
-        List<Proveedor> proveedoresPorDefecto = Arrays.asList(
-                new Proveedor("ElectroTech S.A.", "1712345678", "0987654321", "ventas@electrotech.ec", "Av. 6 de Diciembre 123",
-                        Arrays.asList(
-                                new Producto("Smartphone Samsung", "SAM001", 899.99),
-                                new Producto("Laptop Dell XPS", "DEL002", 1350.50),
-                                new Producto("Tablet Lenovo Tab", "LEN003", 450.75),
-                                new Producto("Auriculares Sony WH-1000XM4", "SON004", 299.99),
-                                new Producto("Monitor LG UltraWide", "LG005", 320.00),
-                                new Producto("Teclado mecánico Corsair", "COR006", 110.00),
-                                new Producto("Mouse inalámbrico Logitech", "LOG007", 49.99)
-                        )
-                ),
+    public void proveedoresPorDefecto() {
+        listaProductosConImpuestos = new ArrayList<>();
+        listaProductosSinImpuestos = new ArrayList<>();
 
-                new Proveedor("Hogar y Diseño", "1809876543", "0996543210", "contacto@hogardiseno.ec", "Calle Bolívar 456",
-                        Arrays.asList(
-                                new Producto("Sofá de cuero", "SOF001", 750.00),
-                                new Producto("Mesa de comedor", "COM002", 420.00),
-                                new Producto("Silla ergonómica", "SIL003", 280.00),
-                                new Producto("Lámpara de pie", "LAM004", 150.00),
-                                new Producto("Colchón viscoelástico", "COL005", 600.00),
-                                new Producto("Estantería metálica", "EST006", 240.00),
-                                new Producto("Cama King Size", "CAM007", 720.00)
-                        )
-                ),
+        ProductoConImpuesto producto = new ProductoConImpuesto("Smartphone Samsung", "SAM001", 899.99, TipoProductoConImpuesto.VALOR_AGREGADO_IVA);
+        listaProductosConImpuestos.add(producto);
+        listaProductosConImpuestos.add(new ProductoConImpuesto("Laptop Dell XPS", "DEL002", 1350.50, TipoProductoConImpuesto.VALOR_AGREGADO_IVA));
+        listaProductosConImpuestos.add(new ProductoConImpuesto("Tablet Lenovo Tab", "LEN003", 450.75, TipoProductoConImpuesto.VALOR_AGREGADO_IVA));
+        listaProductosConImpuestos.add(new ProductoConImpuesto("Auriculares Sony WH-1000XM4", "SON004", 299.99, TipoProductoConImpuesto.VALOR_AGREGADO_IVA));
+        listaProductosConImpuestos.add(new ProductoConImpuesto("Monitor LG UltraWide", "LG005", 320.00, TipoProductoConImpuesto.VALOR_AGREGADO_IVA));
+        listaProductosConImpuestos.add(new ProductoConImpuesto("Teclado mecánico Corsair", "COR006", 110.00, TipoProductoConImpuesto.VALOR_AGREGADO_IVA));
+        listaProductosConImpuestos.add(new ProductoConImpuesto("Mouse inalámbrico Logitech", "LOG007", 49.99, TipoProductoConImpuesto.VALOR_AGREGADO_IVA));
 
-                new Proveedor("AutoPartes Ecuador", "0912345678", "0965432109", "info@autopartes.ec", "Av. Amazonas 789",
-                        Arrays.asList(
-                                new Producto("Aceite sintético Mobil", "ACE001", 55.00),
-                                new Producto("Filtro de aire Bosch", "FIL002", 35.50),
-                                new Producto("Batería de auto LTH", "BAT003", 120.75),
-                                new Producto("Luces LED Philips", "LED004", 80.99),
-                                new Producto("Neumático Pirelli 225/55R17", "NEU005", 250.00),
-                                new Producto("Radio multimedia Pioneer", "RAD006", 410.00),
-                                new Producto("Cámara de reversa", "CAM007", 185.99)
-                        )
-                ),
+        Proveedor proveedor1 = new Proveedor("ElectroTech S.A.", "1804567890", "0987654321", "ventas@electrotech.ec", "Av. 6 de Diciembre 123", true, listaProductosConImpuestos);
+        listaProveedores.add(proveedor1);
 
-                new Proveedor("Farmacia Vida", "1019876543", "0976543210", "farmacia@vida.ec", "Calle Sucre 321",
-                        Arrays.asList(
-                                new Producto("Paracetamol 500mg", "PAR001", 3.50),
-                                new Producto("Ibuprofeno 400mg", "IBU002", 4.75),
-                                new Producto("Jarabe para la tos", "JAR003", 6.90),
-                                new Producto("Vitamina C 1000mg", "VIT004", 12.99),
-                                new Producto("Antibiótico Amoxicilina", "AMO005", 7.50),
-                                new Producto("Gel desinfectante", "GEL006", 2.99),
-                                new Producto("Mascarillas N95", "MAS007", 10.00)
-                        )
-                )
-        );
-        listaProveedores.addAll(proveedoresPorDefecto);
-    }*/
+        listaProductosConImpuestos.clear();
+        listaProductosConImpuestos.add(new ProductoConImpuesto("Aceite sintético Mobil", "ACE001", 55.00, TipoProductoConImpuesto.VALOR_AGREGADO_IVA));
+        listaProductosConImpuestos.add(new ProductoConImpuesto("Filtro de aire Bosch", "FIL002", 35.50, TipoProductoConImpuesto.VALOR_AGREGADO_IVA));
+        listaProductosConImpuestos.add(new ProductoConImpuesto("Batería de auto LTH", "BAT003", 120.75, TipoProductoConImpuesto.VALOR_AGREGADO_IVA));
+        listaProductosConImpuestos.add(new ProductoConImpuesto("Luces LED Philips", "LED004", 80.99, TipoProductoConImpuesto.CONSUMO_ESPECIAL_ICE));
+        listaProductosConImpuestos.add(new ProductoConImpuesto("Neumático Pirelli 225/55R17", "NEU005", 250.00, TipoProductoConImpuesto.CONSUMO_ESPECIAL_ICE));
+        listaProductosConImpuestos.add(new ProductoConImpuesto("Radio multimedia Pioneer", "RAD006", 410.00, TipoProductoConImpuesto.VALOR_AGREGADO_IVA));
+        listaProductosConImpuestos.add(new ProductoConImpuesto("Cámara de reversa", "CAM007", 185.99, TipoProductoConImpuesto.VALOR_AGREGADO_IVA));
+
+        Proveedor proveedor2 = new Proveedor("AutoPartes Ecuador", "1309876543", "0965432109", "info@autopartes.ec", "Av. Amazonas 789", true, listaProductosConImpuestos);
+        listaProveedores.add(proveedor2);
+
+        listaProductosSinImpuestos.clear();
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Arroz Integral", "ALI101", 2.50, TipoProductoSinImpuesto.ALIMENTO_BASICO));
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Leche Descremada", "LEC102", 1.80, TipoProductoSinImpuesto.ALIMENTO_BASICO));
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Pan Integral", "PAN103", 3.00, TipoProductoSinImpuesto.ALIMENTO_BASICO));
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Frutas Frescas", "FRU104", 5.00, TipoProductoSinImpuesto.ALIMENTO_BASICO));
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Yogur natural", "YOG105", 2.50, TipoProductoSinImpuesto.ALIMENTO_BASICO));
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Aceite de oliva", "ACE106", 7.00, TipoProductoSinImpuesto.ALIMENTO_BASICO));
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Harina de trigo", "HAR107", 2.00, TipoProductoSinImpuesto.ALIMENTO_BASICO));
+
+        Proveedor proveedor3 = new Proveedor("SuperFoods", "0912345678", "0987654321", "contacto@superfoods.ec", "Calle Sucre 456", false, listaProductosSinImpuestos);
+        listaProveedores.add(proveedor3);
+
+        listaProductosSinImpuestos.clear();
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Paracetamol 500mg", "PAR001", 3.50, TipoProductoSinImpuesto.MEDICAMENTO));
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Ibuprofeno 400mg", "IBU002", 4.75, TipoProductoSinImpuesto.MEDICAMENTO));
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Jarabe para la tos", "JAR003", 6.90, TipoProductoSinImpuesto.MEDICAMENTO));
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Vitamina C 1000mg", "VIT004", 12.99, TipoProductoSinImpuesto.MEDICAMENTO));
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Antibiótico Amoxicilina", "AMO005", 7.50, TipoProductoSinImpuesto.MEDICAMENTO));
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Gel desinfectante", "GEL006", 2.99, TipoProductoSinImpuesto.MEDICAMENTO));
+        listaProductosSinImpuestos.add(new ProductoSinImpuesto("Mascarillas N95", "MAS007", 10.00, TipoProductoSinImpuesto.MEDICAMENTO));
+
+        Proveedor proveedor4 = new Proveedor("Farmacia Vida", "1723456789", "0976543210", "farmacia@vida.ec", "Calle Sucre 321", false, listaProductosSinImpuestos);
+        listaProveedores.add(proveedor4);
+    }
 }
