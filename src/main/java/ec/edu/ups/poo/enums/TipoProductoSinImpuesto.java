@@ -1,6 +1,6 @@
 package ec.edu.ups.poo.enums;
 
-public enum TipoProductoSinIVA {
+public enum TipoProductoSinImpuesto {
 
     ALIMENTO_BASICO,
     MEDICAMENTO,
