@@ -16,9 +16,7 @@ public class GestorCompras{
         System.out.println("Ingrese la cédula de identidad del proveedor: ");
         String identificacion = scanner.nextLine();
 
-        Proveedor proveedor = gestorProveedor.buscarProveedor(identificacion);
-
-        List<? extends Producto> listaProductos = proveedor.getListaProductos();
+        List<? extends Producto> listaProductos = gestorProveedor.buscarProveedor(identificacion).getListaProductos();
 
         if (listaProductos == null || listaProductos.isEmpty()) {
             System.out.println("No se encontraron productos para este proveedor.");

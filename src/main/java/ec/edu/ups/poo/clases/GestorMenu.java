@@ -134,7 +134,7 @@ public class GestorMenu {
                     "\n4. Aprobar / Rechazar solicitud"+
                     "\n5. Calcular total de una solicitud"+
                     "\n6. Eliminar un ItemCompra"+
-                    "\n6. Volver al menú principal"+
+                    "\n7. Volver al menú principal"+
                     "\nSeleccione una opción: ");
 
             opcion = scanner.nextInt();
@@ -165,7 +165,7 @@ public class GestorMenu {
                 default:
                     System.out.println("Opción no válida.");
             }
-        } while (opcion != 6);
+        } while (opcion != 7);
     }
 
     public static String solicitarCedulaValida() {
