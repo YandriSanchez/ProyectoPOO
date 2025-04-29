@@ -39,6 +39,7 @@ public class GestorProducto {
 
         System.out.print("Precio: ");
         double precio = scanner.nextDouble();
+        scanner.nextLine();
 
         System.out.print("Ingrese el tipo de impuesto (ALIMENTO_BASICO,MEDICAMENTO,MATERIAL_EDUCATIVO): ");
         TipoProductoSinImpuesto tipoImpuesto2 = TipoProductoSinImpuesto.valueOf(scanner.next().toUpperCase());

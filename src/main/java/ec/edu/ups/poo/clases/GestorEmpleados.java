@@ -59,11 +59,11 @@ public class GestorEmpleados {
 
     public void agregarEmpleadosPorDefecto() {
         List<Empleado> empleadosPorDefecto = Arrays.asList(
-                new Empleado("Carlos Ramírez", "1203456789", "0987123456", "carlos.ramirez@empresa.ec", "Av. Colón 321", "carlosr", "Carlos2025"),
-                new Empleado("María Fernández", "1509876543", "0976543210", "maria.fernandez@empresa.ec", "Calle Bolívar 789", "mariaf", "MariaPass"),
-                new Empleado("Juan Pérez", "1102345678", "0998765432", "juan.perez@empresa.ec", "Calle Sucre 567", "juanp", "Juan123"),
-                new Empleado("Sofía Gómez", "1405432167", "0965432109", "sofia.gomez@empresa.ec", "Av. Amazonas 100", "sofiag", "SofiaG12"),
-                new Empleado("Diego Álvarez", "1306789012", "0954321098", "diego.alvarez@empresa.ec", "Calle Rocafuerte 200", "diegoa", "DiegoPass")
+                new Empleado("Carlos Ramírez", "1101160032", "0987123456", "carlos.ramirez@empresa.ec", "Av. Colón 321", "carlosr", "Carlos2025"),
+                new Empleado("María Fernández", "1719690487", "0976543210", "maria.fernandez@empresa.ec", "Calle Bolívar 789", "mariaf", "MariaPass"),
+                new Empleado("Juan Pérez", "1724354459", "0998765432", "juan.perez@empresa.ec", "Calle Sucre 567", "juanp", "Juan123"),
+                new Empleado("Sofía Gómez", "1709839664", "0965432109", "sofia.gomez@empresa.ec", "Av. Amazonas 100", "sofiag", "SofiaG12"),
+                new Empleado("Diego Álvarez", "1712114196", "0954321098", "diego.alvarez@empresa.ec", "Calle Rocafuerte 200", "diegoa", "DiegoPass")
         );
 
         listaEmpleados.addAll(empleadosPorDefecto);

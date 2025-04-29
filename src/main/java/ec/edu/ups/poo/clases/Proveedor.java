@@ -32,7 +32,7 @@ public class Proveedor extends Persona{
 
     @Override
     public String toString() {
-        return "{nombre='" + getNombre() + '\'' +
+        return "\n{nombre='" + getNombre() + '\'' +
                 ", identificacion='" + getIdentificacion() + '\'' +
                 ", telefono='" + getTelefono() + '\'' +
                 ", correo='" + getCorreo() + '\'' +
