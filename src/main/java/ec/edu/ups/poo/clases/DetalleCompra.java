@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DetalleCompra implements OperacionesCompra {
     private EstadoSolicitud estado;
-    private List<ItemCompra> listadoItemProductos;
+    private static List<ItemCompra> listadoItemProductos;
     private GregorianCalendar fechaEmision;
 
     public DetalleCompra(){

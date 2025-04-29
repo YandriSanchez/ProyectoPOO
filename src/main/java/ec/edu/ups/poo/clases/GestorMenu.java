@@ -148,7 +148,7 @@ public class GestorMenu {
                     gestorCompras.listarSolicitudesCompra();
                     break;
                 case 3:
-                    gestorCompras.buscarSolicitudPorNumero(gestorCompras.NumeroBuscar());
+                    System.out.println(gestorCompras.buscarSolicitudPorNumero(gestorCompras.NumeroBuscar()));
                     break;
                 case 4:
                     gestorCompras.gestionarEstadoSolicitud(gestorCompras.NumeroBuscar(), gestorCompras.nuevoEstado());
