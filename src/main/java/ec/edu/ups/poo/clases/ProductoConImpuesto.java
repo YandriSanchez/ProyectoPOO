@@ -30,7 +30,7 @@ public class ProductoConImpuesto extends Producto implements OperacionesCompra {
 
     @Override
     public String toString() {
-        return "ProductoConImpuesto{" +
+        return "\nProductoConImpuesto{" +
                 "nombre='" + getNombre() + '\'' +
                 ", codigo='" + getCodigo() + '\'' +
                 ", precioSinImpuesto=" + getPrecio() +

@@ -22,10 +22,12 @@ public class ProductoSinImpuesto extends Producto {
         this.tipoExencion = tipoExencion;
     }
 
-    @Override
     public String toString() {
-        return "ProductoSinIVA{" +
-                "tipoExencion=" + tipoExencion +
+        return "\nProductoSinImpuesto{" +
+                "nombre='" + getNombre() + '\'' +
+                ", codigo='" + getCodigo() + '\'' +
+                ", precioSinImpuesto=" + getPrecio() +
+                ", tipoImpuesto=" + tipoExencion +
                 '}';
     }
 }

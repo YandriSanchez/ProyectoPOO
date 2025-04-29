@@ -4,15 +4,11 @@ public abstract class Producto {
     private String nombre;
     private String codigo;
     private double precio;
-    private boolean impuesto;
 
-    public Producto() {
-    }
-
-    public Producto(String nombre, String codigo, double precio, boolean impuesto) {
-    }
-
-    public Producto(String nombre, String codigo, double v) {
+    public Producto(String nombre, String codigo, double precio) {
+        this.nombre = nombre;
+        this.codigo = codigo;
+        this.precio = precio;
     }
 
     public String getNombre() {
@@ -37,13 +33,5 @@ public abstract class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
-    }
-
-    public boolean isImpuesto() {
-        return impuesto;
-    }
-
-    public void setImpuesto(boolean impuesto) {
-        this.impuesto = impuesto;
     }
 }
