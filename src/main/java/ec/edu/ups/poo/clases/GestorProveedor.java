@@ -5,10 +5,13 @@ import java.util.*;
 public class GestorProveedor {
 
     private final List<Proveedor> listaProveedores = new ArrayList<>();
-    private List<Producto> listaProductos = new ArrayList<>();
+    private List<ProductoConImpuesto> listaProductosConImpuestos;
+    private List<ProductoSinImpuesto> listaProductosSinImpuestos;
+    private List<? extends Producto> listaProductos;
     Scanner scanner = new Scanner(System.in);
 
     public void agregarProveedor() {
+        GestorProducto gestorProducto = new GestorProducto();
         System.out.println("Ingrese los datos del nuevo proveedor:");
 
         System.out.print("Nombre: ");
@@ -25,12 +28,20 @@ public class GestorProveedor {
         System.out.print("Dirección: ");
         String direccion = scanner.nextLine();
 
-        GestorProducto gestorProducto = new GestorProducto();
-        listaProductos.add(gestorProducto.solicitarProducto());
+        System.out.print("¿El proveedor tiene productos con impuestos? (true/false): ");
+        boolean tieneImpuesto = scanner.nextBoolean();
+
+        if(tieneImpuesto){
+            listaProductosConImpuestos = new ArrayList<>();
+            listaProductosConImpuestos.add(gestorProducto.solicitarProductoConImpuesto());
+        } else {
+            listaProductosSinImpuestos = new ArrayList<>();
+            listaProductosSinImpuestos.add(gestorProducto.solicitarProductoSinImpuesto());
+        }
         System.out.println("Producto agregado correctamente ");
-
-        Proveedor nuevoProveedor = new Proveedor(nombre, identificacion, telefono, correo, direccion,listaProductos);
-
+        listaProductos = listaProductosSinImpuestos;
+        Proveedor nuevoProveedor = new Proveedor(nombre, identificacion, telefono, correo, direccion, tieneImpuesto,
+                listaProductos);
         listaProveedores.add(nuevoProveedor);
         System.out.println("Proveedor agregado correctamente.");
     }
@@ -70,9 +81,16 @@ public class GestorProveedor {
     public void agregarProducto(String identificacion) {
         GestorProducto gestorProducto = new GestorProducto();
         Proveedor proveedorEncontrado = buscarProveedor(identificacion);
-        listaProductos = proveedorEncontrado.getListaProductos();
-        listaProductos.add(gestorProducto.solicitarProducto());
-        proveedorEncontrado.setListaProductos(listaProductos);
+        if(proveedorEncontrado.isImpuesto()){
+            listaProductosConImpuestos = new ArrayList<>();
+            listaProductosConImpuestos.add(gestorProducto.solicitarProductoConImpuesto());
+            listaProductos = listaProductosConImpuestos;
+        } else {
+            listaProductosSinImpuestos = new ArrayList<>();
+            System.out.println("Ingrese los productos sin impuestos:");
+            listaProductosSinImpuestos.add(gestorProducto.solicitarProductoSinImpuesto());
+            listaProductos = listaProductosSinImpuestos;
+        }
         System.out.println("Producto agregado correctamente ");
     }
 

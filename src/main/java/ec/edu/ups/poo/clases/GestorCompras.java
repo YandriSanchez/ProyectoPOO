@@ -16,13 +16,14 @@ public class GestorCompras{
         System.out.println("Ingrese la cédula de identidad del proveedor: ");
         String identificacion = scanner.nextLine();
 
-        List<Producto> listaProductos = gestorProveedor.buscarProveedor(identificacion).getListaProductos();
+        Proveedor proveedor = gestorProveedor.buscarProveedor(identificacion);
+
+        List<? extends Producto> listaProductos = proveedor.getListaProductos();
 
         if (listaProductos == null || listaProductos.isEmpty()) {
             System.out.println("No se encontraron productos para este proveedor.");
             return;
         }
-
 
         List<ItemCompra> listaItemCompra = new ArrayList<>();
         for (Producto producto : listaProductos) {
@@ -30,8 +31,15 @@ public class GestorCompras{
             int cantidad = scanner.nextInt();
             scanner.nextLine();
 
-            ItemCompra item = new ItemCompra(producto, cantidad);
-            listaItemCompra.add(item);
+            if (producto instanceof ProductoConImpuesto) {
+                ItemCompra item = new ItemCompra(producto, cantidad);
+                listaItemCompra.add(item);
+            } else if (producto instanceof ProductoSinImpuesto) {
+                ItemCompra item = new ItemCompra(producto, cantidad);
+                listaItemCompra.add(item);
+            } else {
+                System.out.println("Tipo de producto desconocido. No se agregará a la compra.");
+            }
         }
 
         System.out.println("Ingrese el estado de la solicitud (SOLICITADA, EN_REVISION, APROBADA, RECHAZADA): ");

@@ -4,19 +4,29 @@ import java.util.List;
 
 public class Proveedor extends Persona{
 
-    private List<Producto> listaProductos;
+    private boolean impuesto;
+    private List<? extends Producto> listaProductos;
 
-    public Proveedor(String nombre, String identificacion, String telefono, String correo,
-                     String direccion, List<Producto> listaProductos) {
-        super(nombre, identificacion, telefono, correo, direccion);
+    public Proveedor(String nombre, String cedula, String telefono, String correo, String direccion,
+                     boolean tieneImpuesto, List<? extends Producto> listaProductos) {
+        super(nombre, cedula, telefono, correo, direccion);
+        this.impuesto = tieneImpuesto;
         this.listaProductos = listaProductos;
     }
 
-    public List<Producto> getListaProductos() {
+    public boolean isImpuesto() {
+        return impuesto;
+    }
+
+    public void setImpuesto(boolean impuesto) {
+        this.impuesto = impuesto;
+    }
+
+    public List<? extends Producto> getListaProductos() {
         return listaProductos;
     }
 
-    public void setListaProductos(List<Producto> listaProductos) {
+    public void setListaProductos(List<? extends Producto> listaProductos) {
         this.listaProductos = listaProductos;
     }
 
